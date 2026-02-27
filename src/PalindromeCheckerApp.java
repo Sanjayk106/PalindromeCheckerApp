@@ -69,6 +69,28 @@ class UseCase5PalindromeCheckerApp {
 
     }
 }
+class UseCase6PalindromeCheckerApp {
+
+    void uc6check(String input) {
+
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : input.toCharArray()) {
+            queue.add(c);
+            stack.push(c);
+        }
+        boolean isPalindrome = true;
+
+        while (!queue.isEmpty()) {
+            if (!queue.remove().equals(stack.pop())) {
+                isPalindrome = false;
+                break;
+            }
+        }
+        System.out.println(isPalindrome);
+    }
+}
 
 public class PalindromeCheckerApp {
     public static void main(String[]args){
@@ -83,5 +105,8 @@ public class PalindromeCheckerApp {
         uc4.uc4check(wrd);
         UseCase5PalindromeCheckerApp uc5 = new UseCase5PalindromeCheckerApp();
         uc5.uc5check(wrd);
+        UseCase6PalindromeCheckerApp uc6 = new UseCase6PalindromeCheckerApp();
+        uc6.uc6check(wrd);
     }
 }
+
