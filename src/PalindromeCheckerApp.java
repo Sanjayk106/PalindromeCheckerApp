@@ -1,34 +1,26 @@
 import java.util.*;
 
-class UseCase7PalindromeCheckerApp {
-
-    void uc7check(String input) {
-
-        Deque<Character> deque = new ArrayDeque<>();
-
-        for (char c : input.toCharArray()) {
-            deque.addLast(c);
+class UseCase8PalindromeCheckerApp{
+    void uc8check(String input){
+        LinkedList<Character> list=new LinkedList<>();
+        for(char c:input.toCharArray()){
+            list.add(c);
         }
-
-        boolean isPalindrome = true;
-
-        while (deque.size() > 1) {
-            if (!deque.removeFirst().equals(deque.removeLast())) {
-                isPalindrome = false;
+        boolean isPalindrome=false;
+        while(list.size()>1){
+            if(list.getFirst()==list.getLast()){
+                isPalindrome=true;
                 break;
             }
         }
-
         System.out.println(isPalindrome);
     }
 }
+public class PalindromeCheckerApp{
+    public static void main(String[]args){
+        String wrd="madam" ;
+        UseCase8PalindromeCheckerApp uc8=new UseCase8PalindromeCheckerApp();
+        uc8.uc8check(wrd);
 
-public class PalindromeCheckerApp {
-    public static void main(String[] args) {
-
-        String wrd = "madam";
-
-        UseCase7PalindromeCheckerApp uc7 = new UseCase7PalindromeCheckerApp();
-        uc7.uc7check(wrd);
     }
 }
